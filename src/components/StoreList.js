@@ -1,7 +1,12 @@
 import React from "react"
 import Store from "./Store"
 
-function StoreList() {
+function StoreList({ stores }) {
+    //another way of mapping out of JSX line
+    const storeInfo = stores.map((store) => {
+        return <Store key={store.id} store={store} />
+    })
+        
 
 
     return(
@@ -21,7 +26,8 @@ function StoreList() {
                         Episode
                     </th>
                 </tr>
-                {/** Render a list of <Store> components here. */}
+                {/* {stores.map(store => <Store key={store.id} store={store}/>)} */}
+                {storeInfo}
             </tbody>
         
         </table>
